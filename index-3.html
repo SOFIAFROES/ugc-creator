@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sofia Froes | UGC Creator Portugal — Vídeos autênticos para marcas de bem-estar</title>
+<meta name="description" content="Atriz, locutora e cantora com trinta anos de palco. Vídeos para marcas de bem-estar, slow living e tecnologia com propósito. Fale comigo diretamente.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#2e2a26;
+    --paper:#fdfbf7;
+    --sand:#f3ede4;
+    --sage:#7d8a4a;
+    --sage-deep:#565f2f;
+    --plum:#6b4356;
+    --plum-deep:#4a2e3b;
+    --sun:#c9995f;
+    --grey:#79746c;
+    --line: rgba(46,42,38,0.12);
+    --serif: 'Playfair Display', 'Times New Roman', serif;
+    --sans: 'DM Sans', -apple-system, sans-serif;
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+
+  html{scroll-behavior:smooth;}
+
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--sans);
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+
+  a{color:inherit;text-decoration:none;}
+
+  ::selection{background:var(--sun);color:var(--ink);}
+
+  .wrap{
+    max-width:1180px;
+    margin:0 auto;
+    padding:0 40px;
+  }
+
+  @media(max-width:720px){
+    .wrap{padding:0 24px;}
+  }
+
+  nav{
+    position:fixed;
+    top:0;left:0;right:0;
+    z-index:100;
+    background:rgba(255,255,255,0.92);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid transparent;
+    transition:border-color .3s ease;
+  }
+  nav.scrolled{border-bottom-color:var(--line);}
+  .nav-inner{
+    max-width:1180px;
+    margin:0 auto;
+    padding:22px 40px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+  }
+  @media(max-width:720px){ .nav-inner{padding:18px 24px;} }
+
+  .nav-mark{
+    font-family:var(--serif);
+    font-size:1.15rem;
+    letter-spacing:0.01em;
+  }
+  .nav-mark span{color:var(--sage-deep);}
+
+  .nav-links{
+    display:flex;
+    gap:32px;
+    font-size:0.92rem;
+    color:var(--ink);
+  }
+  .nav-links a{position:relative;padding-bottom:4px;}
+  .nav-links a::after{
+    content:"";
+    position:absolute;
+    left:0;bottom:0;
+    width:0%;height:1.5px;
+    background:var(--sun);
+    transition:width .25s ease;
+  }
+  .nav-links a:hover::after{width:100%;}
+
+  @media(max-width:900px){ .nav-links{display:none;} }
+
+  .nav-cta{
+    font-size:0.88rem;
+    border:1px solid var(--ink);
+    padding:9px 20px;
+    border-radius:999px;
+    transition:background .25s ease, color .25s ease;
+    white-space:nowrap;
+  }
+  .nav-cta:hover{background:var(--ink);color:var(--paper);}
+
+  header.hero{
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    padding-top:120px;
+    padding-bottom:80px;
+    position:relative;
+  }
+
+  .hero-eyebrow{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    font-size:0.92rem;
+    font-weight:500;
+    color:var(--ink);
+    background:var(--sand);
+    border:1px solid var(--line);
+    padding:9px 18px 9px 14px;
+    border-radius:999px;
+    margin-bottom:32px;
+  }
+  .hero-eyebrow .dot{
+    width:7px;height:7px;
+    border-radius:50%;
+    background:var(--sage);
+    flex-shrink:0;
+  }
+
+  h1.headline{
+    font-family:var(--serif);
+    font-weight:500;
+    font-size:clamp(2.6rem, 6.4vw, 5.4rem);
+    line-height:1.06;
+    letter-spacing:-0.01em;
+    max-width:16ch;
+  }
+
+  .headline em{
+    font-style:italic;
+    font-weight:400;
+    color:var(--ink);
+  }
+
+  .hero-clarity{
+    margin-top:22px;
+    font-size:clamp(1.1rem, 1.9vw, 1.4rem);
+    font-weight:500;
+    color:var(--ink);
+    max-width:560px;
+    line-height:1.45;
+  }
+
+  .hero-sub{
+    margin-top:24px;
+    font-size:clamp(1rem, 1.4vw, 1.15rem);
+    line-height:1.65;
+    color:#3a3a3a;
+    max-width:560px;
+  }
+
+  .hero-actions{
+    margin-top:44px;
+    display:flex;
+    align-items:center;
+    gap:28px;
+    flex-wrap:wrap;
+  }
+
+  .btn-primary{
+    background:var(--plum-deep);
+    color:var(--paper);
+    padding:16px 34px;
+    font-size:0.98rem;
+    border-radius:999px;
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    transition:background .25s ease, transform .2s ease;
+    border:none;
+    cursor:pointer;
+  }
+  .btn-primary:hover{background:var(--plum); transform:translateY(-1px);}
+  .btn-primary .dot{
+    width:7px;height:7px;
+    border-radius:50%;
+    background:var(--sage);
+  }
+
+  .link-quiet{
+    font-size:0.95rem;
+    border-bottom:1px solid var(--ink);
+    padding-bottom:2px;
+    transition:border-color .25s ease, color .25s ease;
+  }
+  .link-quiet:hover{color:var(--grey); border-color:var(--grey);}
+
+  .hero-foot{
+    position:absolute;
+    bottom:44px;
+    left:40px;
+    right:40px;
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
+    font-size:0.82rem;
+    color:var(--grey);
+  }
+  @media(max-width:720px){
+    .hero-foot{left:24px;right:24px; flex-direction:column; align-items:flex-start; gap:8px;}
+  }
+
+  .signature{
+    background:var(--plum-deep);
+    color:var(--paper);
+    padding:110px 0;
+  }
+  .signature .wrap{max-width:920px;}
+  .signature p{
+    font-family:var(--serif);
+    font-style:italic;
+    font-weight:400;
+    font-size:clamp(1.35rem, 3vw, 2.2rem);
+    line-height:1.5;
+  }
+  .signature .attribution{
+    margin-top:32px;
+    font-family:var(--sans);
+    font-style:normal;
+    font-size:0.9rem;
+    color:#c9b8bf;
+  }
+  .signature .attribution span{color:var(--sage);}
+
+  section{
+    padding:100px 0;
+    border-bottom:1px solid var(--line);
+  }
+  @media(max-width:720px){ section{padding:70px 0;} }
+
+  .section-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
+    gap:40px;
+    margin-bottom:60px;
+  }
+  @media(max-width:720px){
+    .section-head{flex-direction:column;align-items:flex-start;gap:18px;margin-bottom:40px;}
+  }
+
+  h2.section-title{
+    font-family:var(--serif);
+    font-weight:500;
+    font-size:clamp(1.85rem, 3.2vw, 2.6rem);
+    max-width:17ch;
+    line-height:1.18;
+    color:var(--sage-deep);
+  }
+
+  .section-note{
+    font-size:0.98rem;
+    color:var(--grey);
+    max-width:340px;
+    line-height:1.55;
+    text-align:right;
+  }
+  @media(max-width:720px){ .section-note{text-align:left;} }
+
+  .proof-banner{
+    background:var(--sand);
+    border:1px solid var(--line);
+    border-radius:20px;
+    padding:48px;
+    display:grid;
+    grid-template-columns:1fr auto;
+    gap:40px;
+    align-items:center;
+  }
+  @media(max-width:820px){
+    .proof-banner{grid-template-columns:1fr; padding:36px 28px;}
+  }
+  .proof-banner .proof-label{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    font-size:0.82rem;
+    font-weight:600;
+    text-transform:uppercase;
+    letter-spacing:0.06em;
+    color:var(--grey);
+    margin-bottom:14px;
+  }
+  .proof-banner .proof-label .dot{
+    width:6px;height:6px;
+    border-radius:50%;
+    background:var(--sage);
+  }
+  .proof-banner h3{
+    font-family:var(--serif);
+    font-weight:500;
+    font-size:1.6rem;
+    line-height:1.35;
+    max-width:32ch;
+    color:var(--sage-deep);
+  }
+  .proof-banner p{
+    margin-top:14px;
+    color:#3a3a3a;
+    font-size:1rem;
+    line-height:1.6;
+    max-width:48ch;
+  }
+  .proof-banner .btn-primary{
+    white-space:nowrap;
+  }
+
+  .format-preview-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:1px;
+    background:var(--line);
+    border:1px solid var(--line);
+    margin-top:1px;
+  }
+  @media(max-width:820px){ .format-preview-grid{grid-template-columns:1fr;} }
+  .format-preview-card{
+    background:var(--paper);
+    padding:32px 28px;
+  }
+  .format-preview-card .preview-tag{
+    display:inline-block;
+    font-size:0.78rem;
+    font-weight:600;
+    text-transform:uppercase;
+    letter-spacing:0.05em;
+    color:var(--grey);
+    background:var(--sand);
+    padding:5px 12px;
+    border-radius:999px;
+    margin-bottom:16px;
+  }
+  .format-preview-card h4{
+    font-family:var(--serif);
+    font-weight:500;
+    font-size:1.1rem;
+    margin-bottom:8px;
+    line-height:1.3;
+  }
+  .format-preview-card p{
+    color:var(--grey);
+    font-size:0.92rem;
+    line-height:1.55;
+  }
+
+  .contrast-row{
+    display:grid;
+    grid-template-columns:1fr 1px 1fr;
+    gap:48px;
+    padding:40px 0;
+    border-top:1px solid var(--line);
+  }
+  .contrast-row:last-child{border-bottom:none;}
+  @media(max-width:820px){
+    .contrast-row{grid-template-columns:1fr;gap:16px;}
+    .contrast-row .divider{display:none;}
+  }
+  .divider{background:var(--line);}
+
+  .contrast-col .label{
+    font-size:0.82rem;
+    color:var(--grey);
+    margin-bottom:10px;
+  }
+  .contrast-col .value{
+    font-family:var(--serif);
+    font-size:1.3rem;
+    font-weight:500;
+    line-height:1.35;
+  }
+  .contrast-col.after .value{color:var(--ink);}
+  .contrast-col.after .value::before{
+    content:"";
+    display:inline-block;
+    width:7px;height:7px;
+    border-radius:50%;
+    background:var(--sage);
+    margin-right:10px;
+    vertical-align:middle;
+  }
+
+  .who-list{
+    display:flex;
+    flex-direction:column;
+  }
+  .who-row{
+    display:grid;
+    grid-template-columns:64px 1fr;
+    gap:28px;
+    padding:32px 0;
+    border-top:1px solid var(--line);
+    align-items:baseline;
+  }
+  .who-row:last-child{border-bottom:1px solid var(--line);}
+  @media(max-width:720px){
+    .who-row{grid-template-columns:1fr;gap:8px;}
+  }
+  .who-mark{
+    font-family:var(--serif);
+    font-style:italic;
+    color:var(--sun);
+    font-size:1.1rem;
+  }
+  .who-text h3{
+    font-family:var(--serif);
+    font-weight:500;
+    font-size:1.25rem;
+    margin-bottom:8px;
+  }
+  .who-text p{
+    color:var(--grey);
+    font-size:1rem;
+    line-height:1.6;
+    max-width:56ch;
+  }
+
+  .formats-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:1px;
+    background:var(--line);
+    border:1px solid var(--line);
+  }
+  @media(max-width:820px){ .formats-grid{grid-template-columns:1fr;} }
+  .format-card{
+    background:var(--paper);
+    padding:40px 32px;
+  }
+  .format-card h3{
+    font-family:var(--serif);
+    font-weight:500;
+    font-size:1.2rem;
+    margin-bottom:14px;
+  }
+  .format-card p{
+    color:var(--grey);
+    font-size:0.95rem;
+    line-height:1.6;
+  }
+
+  .formats-note{
+    margin-top:36px;
+    color:var(--grey);
+    font-size:0.94rem;
+    line-height:1.6;
+    max-width:60ch;
+  }
+
+  .faq-list{
+    display:flex;
+    flex-direction:column;
+  }
+  .faq-item{
+    border-top:1px solid var(--line);
+    padding:28px 0;
+  }
+  .faq-item:last-child{border-bottom:1px solid var(--line);}
+  .faq-item h3{
+    font-family:var(--serif);
+    font-weight:500;
+    font-size:1.15rem;
+    margin-bottom:10px;
+  }
+  .faq-item p{
+    color:var(--grey);
+    font-size:0.97rem;
+    line-height:1.6;
+    max-width:60ch;
+  }
+
+  .cta-section{
+    padding:130px 0;
+    border-bottom:none;
+    text-align:center;
+  }
+  .cta-section h2{
+    font-family:var(--serif);
+    font-weight:500;
+    font-size:clamp(2.1rem, 4.4vw, 3.1rem);
+    max-width:18ch;
+    margin:0 auto 24px;
+    line-height:1.2;
+  }
+  .cta-section .cta-sub{
+    color:var(--grey);
+    font-size:1.05rem;
+    max-width:48ch;
+    margin:0 auto 40px;
+    line-height:1.6;
+  }
+  .cta-form{
+    display:flex;
+    justify-content:center;
+    gap:14px;
+    flex-wrap:wrap;
+  }
+  .cta-input{
+    font-family:var(--sans);
+    font-size:0.98rem;
+    padding:16px 22px;
+    border:1px solid var(--ink);
+    border-radius:999px;
+    min-width:280px;
+    background:var(--paper);
+  }
+  .cta-input:focus{
+    outline:2px solid var(--sun);
+    outline-offset:2px;
+  }
+  .cta-submit{
+    background:var(--plum-deep);
+    color:var(--paper);
+    padding:16px 30px;
+    border-radius:999px;
+    font-size:0.98rem;
+    border:1px solid var(--plum-deep);
+    cursor:pointer;
+    transition:background .25s ease;
+  }
+  .cta-submit:hover{background:var(--plum);}
+  .cta-note{
+    margin-top:20px;
+    font-size:0.84rem;
+    color:var(--grey);
+  }
+  .cta-success{
+    display:none;
+    font-family:var(--serif);
+    font-size:1.15rem;
+    padding:18px 0;
+  }
+  .cta-success.show{display:block;}
+  .cta-form.hide{display:none;}
+
+  footer{
+    padding:48px 0;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    font-size:0.85rem;
+    color:var(--grey);
+  }
+  @media(max-width:720px){
+    footer{flex-direction:column;gap:14px;text-align:center;}
+  }
+  footer a{border-bottom:1px solid transparent;}
+  footer a:hover{border-color:var(--grey);}
+
+  .reveal{
+    opacity:0;
+    transform:translateY(14px);
+    animation:revealUp .8s cubic-bezier(.2,.8,.2,1) forwards;
+  }
+  @keyframes revealUp{
+    to{opacity:1; transform:translateY(0);}
+  }
+  @media(prefers-reduced-motion: reduce){
+    .reveal{animation:none; opacity:1; transform:none;}
+    html{scroll-behavior:auto;}
+  }
+
+  .skip-link{
+    position:absolute;
+    left:-9999px;
+    top:0;
+    background:var(--ink);
+    color:var(--paper);
+    padding:12px 20px;
+    z-index:200;
+    border-radius:0 0 8px 0;
+  }
+  .skip-link:focus{
+    left:0;
+  }
+</style>
+</head>
+<body>
+
+<a href="#main" class="skip-link">Saltar para o conteúdo</a>
+
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="#top" class="nav-mark">Sofia Fr<span>o</span>es</a>
+    <div class="nav-links">
+      <a href="#porque">Porquê</a>
+      <a href="#como-trabalho">Como trabalho</a>
+      <a href="#para-quem">Para quem</a>
+      <a href="#formatos">Formatos</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap" id="main">
+    <span class="hero-eyebrow reveal" style="animation-delay:.05s"><span class="dot"></span>UGC Creator & Locutora · Ericeira, Portugal</span>
+    <h1 class="headline reveal" style="animation-delay:.15s">Não interpreto a sua marca.<br>Vivo-<em>a.</em></h1>
+    <p class="hero-clarity reveal" style="animation-delay:.25s">
+      Vídeos e voz para marcas de bem-estar, slow living e tecnologia com propósito — feitos para serem sentidos, não só vistos.
+    </p>
+    <p class="hero-sub reveal" style="animation-delay:.35s">
+      Gosto de ouvir e de contar histórias. Foi a atriz em mim que me ensinou
+      a observar, a perceber o outro e o que ele precisa — a locução é só
+      o veículo dessa história. São trinta anos de experiência artística
+      em diálogo com a condição humana. Gosto mesmo de ver os outros.
+    </p>
+    <div class="hero-actions reveal" style="animation-delay:.5s">
+      <a href="#comecar" class="btn-primary"><span class="dot"></span> Marcar uma conversa</a>
+      <a href="#porque" class="link-quiet">Porque é diferente</a>
+    </div>
+  </div>
+  <div class="hero-foot">
+    <span>Ericeira, Portugal</span>
+    <span>Voz · Presença · Palco · Câmara</span>
+  </div>
+</header>
+
+<section class="signature">
+  <div class="wrap">
+    <p>"Não escondo os problemas — mostro como lido com eles. É essa
+    a diferença entre uma marca que finge ter tudo resolvido e uma mulher
+    que já viveu o suficiente para saber que a vida não se resolve de uma
+    vez, negoceia-se todos os dias."</p>
+    <p class="attribution">Sofia Fr<span>o</span>es</p>
+  </div>
+</section>
+
+<section id="prova">
+  <div class="wrap">
+    <div class="proof-banner">
+      <div>
+        <span class="proof-label"><span class="dot"></span>Projetos-piloto abertos</span>
+        <h3>Ainda não tenho vídeos publicados com marcas — e digo isto sem rodeios.</h3>
+        <p>
+          Estou a abrir as primeiras colaborações agora, com condições especiais
+          para quem entrar comigo desde o início. Prefiro começar com sinceridade
+          a prometer um portefólio que ainda não existe.
+        </p>
+      </div>
+      <a href="#comecar" class="btn-primary"><span class="dot"></span> Ser um dos primeiros projetos</a>
+    </div>
+
+    <div class="format-preview-grid">
+      <div class="format-preview-card">
+        <span class="preview-tag">Ideia 01</span>
+        <h4>"Já vivi o suficiente para não fingir"</h4>
+        <p>Um vídeo-manifesto, sem produto — só eu e uma situação real da minha vida onde encontrei caminho.</p>
+      </div>
+      <div class="format-preview-card">
+        <span class="preview-tag">Ideia 02</span>
+        <h4>Ciência + espiritualidade</h4>
+        <p>A ponte que poucos fazem: o estudo por trás de um produto de bem-estar, e a experiência sentida no corpo.</p>
+      </div>
+      <div class="format-preview-card">
+        <span class="preview-tag">Ideia 03</span>
+        <h4>Presença na rua</h4>
+        <p>Uma conversa real, com uma pessoa desconhecida, sobre um tema simples de slow living ou hábitos de vida.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="porque">
+  <div class="wrap">
+    <div class="section-head">
+      <h2 class="section-title">Não mostro uma vida perfeita. Mostro uma vida real, com escolhas.</h2>
+      <p class="section-note">Antes de aparecer num vídeo, já esteve na minha vida — numa viagem, num hábito, num gesto simples do dia a dia.</p>
+    </div>
+
+    <div class="contrast-row">
+      <div class="contrast-col before">
+        <p class="label">O que a maioria promete</p>
+        <p class="value">Uma vida sem problemas.</p>
+      </div>
+      <div class="divider"></div>
+      <div class="contrast-col after">
+        <p class="label">O que eu mostro</p>
+        <p class="value">Uma vida onde as coisas acontecem — e eu continuo a escolher como vivê-las.</p>
+      </div>
+    </div>
+
+    <div class="contrast-row">
+      <div class="contrast-col before">
+        <p class="label">O que a maioria promete</p>
+        <p class="value">Um texto perfeito, decorado, repetido.</p>
+      </div>
+      <div class="divider"></div>
+      <div class="contrast-col after">
+        <p class="label">O que eu mostro</p>
+        <p class="value">Uma voz que sabe onde uma frase é verdadeira e onde soa a texto.</p>
+      </div>
+    </div>
+
+    <div class="contrast-row">
+      <div class="contrast-col before">
+        <p class="label">O que a maioria promete</p>
+        <p class="value">Ciência ou espiritualidade — escolha um lado.</p>
+      </div>
+      <div class="divider"></div>
+      <div class="contrast-col after">
+        <p class="label">O que eu mostro</p>
+        <p class="value">As duas coisas juntas, porque foi assim que aprendi a viver.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="como-trabalho">
+  <div class="wrap">
+    <div class="section-head">
+      <h2 class="section-title">Antes da câmara, uma conversa. É aí que está tudo.</h2>
+      <p class="section-note">Antes de gravar, gosto de perceber quem é a marca — é aí que nasce a ideia certa.</p>
+    </div>
+
+    <div class="who-list">
+      <div class="who-row">
+        <span class="who-mark">01</span>
+        <div class="who-text">
+          <h3>Primeiro, ouço</h3>
+          <p>Vinte minutos, sem powerpoint nem guião. Conte-me o que a marca resolve, para quem, e porque isto importa agora — é o que realmente preciso de saber.</p>
+        </div>
+      </div>
+      <div class="who-row">
+        <span class="who-mark">02</span>
+        <div class="who-text">
+          <h3>Depois, penso convosco</h3>
+          <p>Há sempre mais do que uma forma de contar uma história. Trago algumas ideias, discutimos, e ficamos com a que faz mesmo sentido para vocês.</p>
+        </div>
+      </div>
+      <div class="who-row">
+        <span class="who-mark">03</span>
+        <div class="who-text">
+          <h3>Na gravação, estou lá — não a representar</h3>
+          <p>Trinta anos de palco ensinam a reconhecer quando alguém está a fingir. Prefiro não fingir. Prefiro estar presente, mesmo que isso signifique repetir um take até soar certo.</p>
+        </div>
+      </div>
+      <div class="who-row">
+        <span class="who-mark">04</span>
+        <div class="who-text">
+          <h3>E não fica à espera semanas</h3>
+          <p>Tenho estúdio próprio para voz e trabalho com estúdio profissional sempre que o vídeo pede mais. Sem intermediários a atrasar o processo — falamos, gravamos, e o vídeo chega-lhe pronto a publicar.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="para-quem">
+  <div class="wrap">
+    <div class="section-head">
+      <h2 class="section-title">Marcas que unem ciência e espiritualidade, natureza e tecnologia</h2>
+      <p class="section-note">Não procuro um nicho de idade. Procuro marcas que acreditam, como eu, que qualidade de vida se constrói com hábitos — não se compra numa embalagem.</p>
+    </div>
+
+    <div class="who-list">
+      <div class="who-row">
+        <span class="who-mark">01</span>
+        <div class="who-text">
+          <h3>Bem-estar que investigo antes de mostrar</h3>
+          <p>Antes de falar de um colagénio, de um ómega 3 ou de um óleo essencial, quero perceber o que a ciência diz mesmo sobre eles. Não repito uma ficha técnica — pergunto, leio, experimento.</p>
+        </div>
+      </div>
+      <div class="who-row">
+        <span class="who-mark">02</span>
+        <div class="who-text">
+          <h3>Espiritualidade sem exagero</h3>
+          <p>Meditação, movimento consciente, tudo o que ajuda alguém a voltar a estar no próprio corpo.</p>
+        </div>
+      </div>
+      <div class="who-row">
+        <span class="who-mark">03</span>
+        <div class="who-text">
+          <h3>Natureza e slow living</h3>
+          <p>Marcas que respeitam o tempo das coisas — da terra, do corpo, das estações — em vez de o atropelar.</p>
+        </div>
+      </div>
+      <div class="who-row">
+        <span class="who-mark">04</span>
+        <div class="who-text">
+          <h3>Tecnologia com propósito</h3>
+          <p>Ferramentas que servem uma vida melhor, não que a substituem. Gosto de mostrar como cabem no dia a dia real.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="formatos">
+  <div class="wrap">
+    <div class="section-head">
+      <h2 class="section-title">Como trabalho o conteúdo</h2>
+      <p class="section-note">Três formas de gravar, consoante o que a marca precisa mostrar.</p>
+    </div>
+
+    <div class="formats-grid">
+      <div class="format-card">
+        <h3>Vida real, depois solução</h3>
+        <p>Uma situação que qualquer mulher reconhece, e o momento em que uma escolha ou um produto muda alguma coisa. Sem queixa, sem encenação.</p>
+      </div>
+      <div class="format-card">
+        <h3>Voz sobre imagem</h3>
+        <p>A minha voz de locutora, gravada no meu próprio estúdio, a conduzir a história da marca sobre imagens de produto ou de vida real.</p>
+      </div>
+      <div class="format-card">
+        <h3>Conversa na rua</h3>
+        <p>Uma conversa real, com uma pessoa desconhecida — porque é aí que a confiança se constrói.</p>
+      </div>
+    </div>
+
+    <p class="formats-note">
+      Cada formato pode incluir gravação em estúdio ou em ambiente natural,
+      consoante o que a marca precisa contar.
+    </p>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <div class="section-head">
+      <h2 class="section-title">Perguntas antes de escrever</h2>
+      <p class="section-note">O que costuma perguntar-se antes de marcar a conversa.</p>
+    </div>
+
+    <div class="faq-list">
+      <div class="faq-item">
+        <h3>A conversa inicial tem custo?</h3>
+        <p>Não. Os vinte minutos são só para nos conhecermos e perceber se faz sentido trabalharmos juntas — sem compromisso de nenhuma das partes.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Ainda não tem vídeos publicados. Como sei que entrega qualidade?</h3>
+        <p>Tem trinta anos de palco, estúdio e locução para verificar — e uma conversa comigo antes de decidir. Prefiro ganhar a sua confiança a prometê-la de antemão.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Grava em estúdio próprio ou preciso de fornecer espaço?</h3>
+        <p>Tenho estúdio próprio para as gravações de voz. Para vídeo, trabalho também com estúdio profissional — decidimos juntas o cenário certo para cada marca: estúdio, casa, ou ambiente natural.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Quanto tempo demora do briefing à entrega?</h3>
+        <p>Normalmente, poucos dias após a gravação. Falamos disso logo na conversa inicial, consoante a complexidade do formato escolhido.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section" id="comecar" style="border-bottom:1px solid var(--line);">
+  <div class="wrap">
+    <h2>Vamos conversar antes de gravar?</h2>
+    <p class="cta-sub">
+      Não decoro textos que não sinto. Combine vinte minutos comigo, online —
+      conto-lhe como trabalho, ouço a sua marca, e vemos juntas qual é a solução certa.
+    </p>
+    <form class="cta-form" id="cta-form">
+      <input class="cta-input" type="email" name="email" placeholder="o-seu-email@marca.com" required>
+      <button class="cta-submit" type="submit">Marcar conversa</button>
+    </form>
+    <p class="cta-success" id="cta-success">Obrigada. Vou responder-lhe pessoalmente em breve.</p>
+    <p class="cta-note">Ou escreva diretamente para sofia@sofiafroes.pt</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap" style="display:flex;justify-content:space-between;align-items:center;width:100%;">
+    <span>© 2026 Sofia Froes</span>
+    <a href="https://sofiafroes.pt" target="_blank" rel="noopener">sofiafroes.pt</a>
+  </div>
+</footer>
+
+<script>
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 20);
+  });
+
+  // NOTA PARA SOFIA: substitui "SEU_CODIGO_AQUI" abaixo pelo código real da tua conta Formspree
+  // (cria conta grátis em formspree.io, cria um formulário, copia o código do endpoint)
+  const FORM_ENDPOINT = "https://formspree.io/f/SEU_CODIGO_AQUI";
+
+  const form = document.getElementById('cta-form');
+  const successMsg = document.getElementById('cta-success');
+
+  form.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const formData = new FormData(form);
+    try {
+      const response = await fetch(FORM_ENDPOINT, {
+        method: 'POST',
+        body: formData,
+        headers: { 'Accept': 'application/json' }
+      });
+      if (response.ok) {
+        form.classList.add('hide');
+        successMsg.classList.add('show');
+      } else {
+        alert('Não foi possível enviar agora. Por favor escreva para sofia@sofiafroes.pt');
+      }
+    } catch (error) {
+      alert('Não foi possível enviar agora. Por favor escreva para sofia@sofiafroes.pt');
+    }
+  });
+</script>
+
+</body>
+</html>
